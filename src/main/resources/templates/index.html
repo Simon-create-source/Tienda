@@ -4,9 +4,10 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/estilos.css}" />
     </head>
     <body>
-       <div>Saludos</div>
+      <!-- <div>Saludos</div>
         <p th:text="${mensaje}"></p>
       
       <h1>Un cliente</h1>
@@ -16,25 +17,33 @@
       <p>Telefono: <span th:text="${cliente.telefono}"></span></p>
       
       <br>      
-      <br>
+      <br>-->
+      <header th:replace="layout/platilla :: header"/>
       
-      <h1>lista de clientes</h1>
+      <h2>lista de clientes</h2>
+      <a th:href="@{/nuevoCliente}">Nuevo Cliente</a>
+      <br> 
+      <br> 
       <div th:if="${cliente != null and !clientes.empty}">
       <table border="1">
-          <thead>
+          <thead id="encabezadoTabla">
               <tr>
                   <th>nombre</th>
                   <th>Apellidos</th>
                   <th>Correo</th>
                   <th>Telefono</th>
+                  <th>Modificar</th>
+                  <th>Eliminar</th>
               </tr>
           </thead>
           <tbody>
               <tr th:each="item : ${clientes}">
-                  <td th:text="${item.nombre}"></td>
+                  <td th:class="nombreAzul" th:text="${item.nombre}"></td>
                   <td th:text="${item.apellidos}"></td>
                   <td th:text="${item.correo}"></td>
                   <td th:text="${item.telefono}"></td>
+                  <td><a th:href="@{/modificarCliente/} + ${item.idCliente}">Modificar</a></td>
+                  <td><a th:href="@{/eliminarCliente/} + ${item.idCliente}">Eliminar</a></td>
               </tr>
           </tbody>
       </table>
@@ -43,6 +52,7 @@
       <div th:if="${cliente == null or clientes.empty}">
           La lista de clientes esta vacia
       </div>
+      <footer th:replace="layout/platilla :: footer" />
       
     </body>
 </html>
