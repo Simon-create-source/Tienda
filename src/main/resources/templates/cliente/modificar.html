@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/19997xhtml">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <link href="../../static/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/platilla :: header"/>
+        <div class="contenido">
+            <h2>Datos Cliente</h2>
+            <a th:href="@{/}">Regresar</a>   
+            <br>
+            <br>    
+            <form th:action="@{/cliente/guardar}"
+                  method="post"
+                  th:OBJECT="${cliente}"> 
+                <input type="hidden" name="idCliente" th:field="*{idCliente}" />
+                <label for="nombre">Nombre: </label>
+                <input type="text" id="nombre" name="nombre" th:field="*{nombre}" />
+                <br>
+                <label for="apellidos">Apellidos: </label>
+                <input type="text" id="apellidos" name="apellidos" th:field="*{apellidos}" />
+                <br>
+                <label for="correo">Correo: </label>
+                <input type="email" id="correo" name="correo" th:field="*{correo}" />
+                <br>
+                <label for="limite">Limite de credito: </label>
+                <input type="number" id="limite" name="limite" th:field="*{credito.limite}" />
+                <br>
+                <input type="submit" name="Guardar" value="Guardar" />
+            </form>
+        </div>
+        <footer th:replace="layout/platilla :: footer" />
+    </body>
+</html>

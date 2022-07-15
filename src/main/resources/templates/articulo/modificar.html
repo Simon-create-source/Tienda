@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/19997xhtml">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <link href="../../static/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/platilla :: header"/>
+        <div class="contenido">
+            <h2>Datos Articulo</h2>
+            <a th:href="@{/}">Regresar</a>   
+            <br>
+            <br>    
+            <form th:action="@{/articulo/guardar}"
+                  method="post"
+                  th:OBJECT="${articulo}"> 
+                <input type="hidden" name="idArticulo" th:field="*{idArticulo}" />
+                <label for="detalle">Detalle: </label>
+                <input type="text" id="detalle" name="detalle" th:field="*{detalle}" />
+                <br>
+                <label for="descripcion">Descripcion: </label>
+                <input type="text" id="descripcion" name="descripcion" th:field="*{descripcion}" />
+                <br>
+                <label for="precio">Precio: </label>
+                <input type="email" id="precio" name="precio" th:field="*{precio}" />
+                <br>
+                 <label for="existencias">Existencias: </label>
+                <input type="email" id="existencias" name="existencias" th:field="*{existencias}" />
+                <br>
+                <label for="activo">Activo: </label>
+                <input type="checkbox" id="activo" name="activo" th:field="*{activo}" />
+                <br>
+                <input type="submit" name="Guardar" value="Guardar" />
+            </form>
+        </div>
+        <footer th:replace="layout/platilla :: footer" />
+    </body>
+</html>
