@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/19997xhtml">
+      xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>TODO supply a title</title>
+        <title>TechShop</title>
         <meta charset="UTF-8">
     </head>
     <body>
-        <header th:replace="layout/platilla :: header"/>
+        <header th:replace="layout/plantilla :: header" />
         <h2>Datos Cliente</h2>
-        <a th:href="@{/}">Regresar</a>   
+        <a th:href="@{/}">Regresar</a>
         <br>
-        <br>    
-        <form th:action="@{/guardarCleinte}"
+        <br>
+        <form th:action="@{/guardarCliente}"
               method="post"
-              th:OBJECT="${cliente}"> 
+              th:object="${cliente}">
             <input type="hidden" name="idCliente" th:field="*{idCliente}" />
             <label for="nombre">Nombre: </label>
             <input type="text" id="nombre" name="nombre" th:field="*{nombre}" />
@@ -25,7 +24,7 @@
             <label for="correo">Correo: </label>
             <input type="email" id="correo" name="correo" th:field="*{correo}" />
             <br>
-            <label for="telefono">Telefono: </label>
+            <label for="telefono">Teléfono: </label>
             <input type="tel" id="telefono" name="telefono" th:field="*{telefono}" />
             <br>
             <input type="submit" name="Guardar" value="Guardar" />
