@@ -65,7 +65,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-3">
                         <div class="card text-center bg-danger text-white mb-3">
                             <div class="card-body">
@@ -85,6 +84,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -94,7 +94,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-info text-white">
                             <h5 class="modal-title" th:text="#{accion.agregar}">Agregar Cliente</h5>
-                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
                         <form th:action="@{/cliente/guardar}" th:object="${cliente}"
                               method="POST" class="was-validated">
@@ -172,7 +172,7 @@
                 </div>
             </form>
         </section>
-                <section th:fragment="botonesEditar">
+        <section th:fragment="botonesEditar">
             <div id="actions" class="py-4 mb-4 bg-light">
                 <div class="container">
                     <div class="row">
@@ -196,5 +196,6 @@
                 </div>
             </div>
         </section>
+
     </body>
 </html>
